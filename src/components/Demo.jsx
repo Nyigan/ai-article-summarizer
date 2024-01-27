@@ -33,7 +33,7 @@ useEffect(() => {
       const updatedAllArticles = [newArticle, ...allArticles];
       
       setArticle(newArticle);
-      setAllArticle(updatedAllArticles);
+      setAllArticles(updatedAllArticles);
 
       
     }
