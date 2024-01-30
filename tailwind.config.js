@@ -2,13 +2,13 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{html,js,ts,jsx,tsx,css}"
   ],
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ["satoshi", "sans-serif"],
-        Inter: ["inter", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       }
     },
   },
