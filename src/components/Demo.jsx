@@ -29,8 +29,7 @@ useEffect(() => {
     e.preventDefault();
 
     const existingArticle = allArticles.find(
-      (item) => item.url === article.url
-    );
+      (item) => item.url === article.url);
 
     if (existingArticle) return setArticle(existingArticle);
 
@@ -44,9 +43,7 @@ useEffect(() => {
       setArticle(newArticle);
       setAllArticles(updatedAllArticles);
 
-      localStorage.setItem('articles', JSON.stringify (updatedAllArticles));
-
-      
+      localStorage.setItem('articles', JSON.stringify (updatedAllArticles));      
     }
   };
   const handleCopy = (copyUrl) => {
@@ -55,7 +52,7 @@ useEffect(() => {
     navigator.clipboard.writeText(copyUrl);
 
     setTimeout(() => setCopied(false), 3000);
-  }
+  };
   return (
     <section className="mt-16 w-full max-w-xl">
       {/* Search */}
@@ -91,18 +88,13 @@ useEffect(() => {
         {/* Browse URL History */}
         <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
           {allArticles.map((item, index) => (
-            <div 
-              key={`link-${index}`}
-              onClick={() => setArticle(item)}
-              className="link_card"
-            >
-              <div className="copy_btn"
-                onClick={() => handleCopy(item.url)}
-              >
+            <div key={`link-${index}`} onClick={() => setArticle(item)} className='link_card'>
+
+              <div className="copy_btn" onClick={() => handleCopy(item.url)}>
                 <img
                   src={copied === item.url ? tick : copy}
                   alt={copied === item.url ? "tick_icon" : "copy_icon"}
-                  className='w-[40%] h-[40%] object-contain'
+                  className="w-[40%] h-[40%] object-contain"
                 />
               </div>
               <p className="flex-1 font-satoshi text-blue-700 font-medium text-sm truncate">
@@ -118,9 +110,10 @@ useEffect(() => {
         {isFetching ? (
           <img src={loader} 
           alt = "loader" 
-          className="w-120 h-20 object-contain" />
+          className="w-20 h-20 object-contain" />
         ) : error ? (
-          <p className="font-inter font-bold text-black text-center">Well, that wasn't supposed to happen...
+          <p className="font-inter font-bold text-black text-center">
+            Well, that wasn't supposed to happen...
           <br />
           <span className="font-satoshi font-normal text-gray-700">
             {error?.data?.error}
@@ -137,11 +130,11 @@ useEffect(() => {
               </div>
             </div>
           )
-        ) }
+        )}
 
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Demo
